@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Controllers\CamisaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/camisas', function () {
-    $camisas= DB::table('camisas')->get();
-    return view('indexCamisas',compact('camisas'));
-});
-Route::get('/formularioC', function () {
-    $camisas= DB::table('camisas')->get();
-    return view('formularioCamisa',compact('camisas'));
-});
-Route::post('/store', function () {
-    
-});
+Route::resource("/camisa",CamisaController::class);
