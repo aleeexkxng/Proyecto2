@@ -7,37 +7,43 @@
     <title>Camisas</title>
 </head>
 <body>
-    <a href="/camisa">Pagina principal</a>
-    <a href="/camisa/create">Agregar nueva camisa</a>
-    <h1>Listado de camisas</h1>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Talla</th>
-            <th>Marca</th>
-            <th>Precio</th>
-            <th>Unidades disponibles</th>
-            <th>Acciones</th>
-        </tr>
-    @foreach($camisas as $camisa)
-        <tr>
-            <td>{{   $camisa->id   }}</td>
-            <td>{{   $camisa->talla   }}</td>
-            <td>{{   $camisa->marca   }}</td>
-            <td>{{   $camisa->precio   }}</td>
-            <td>{{   $camisa->no_unidades   }}</td>
-            <td>
-                <a href="/camisa/{{$camisa->id}}">Ver Detalle</a>
-                <a href="/camisa/{{$camisa->id}}/edit">Editar</a>
-                <form action="/camisa/{{$camisa->id}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="Eliminar">
-                </form>
-            </td>
-        </tr>
-    @endforeach
-    </table>
+    <h1 align="center">Listado de camisas</h1>
+    @if($camisas->count()==0)
+        <h2 align="center">No hay camisas para mostrar</h2>
+        <h3 align="center">Para agregar una haga click en la opcion "Agregar Camisa"</h3>
+    @else
+        <table border="1" style="margin: 0 auto;" >
+            <tr  >
+                <th>ID &nbsp&nbsp&nbsp</th>
+                <th>Talla &nbsp&nbsp&nbsp</th>
+                <th>Marca &nbsp&nbsp&nbsp</th>
+                <th>Precio &nbsp&nbsp&nbsp</th>
+                <th>Unidades disponibles &nbsp&nbsp&nbsp</th>
+                <th></th>
+                <th>Acciones &nbsp&nbsp&nbsp</th>
+                <th></th>
+            </tr>
+        @foreach($camisas as $camisa)
+            <tr>
+                <td>{{   $camisa->id   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->talla   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->marca   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->precio   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->no_unidades   }} &nbsp&nbsp&nbsp</td>
+                <td>
+                    <a href="/camisa/{{$camisa->id}}">&nbsp&nbsp&nbsp Ver Detalle</a>   
+                </td>
+                <td><a href="/camisa/{{$camisa->id}}/edit">&nbsp&nbsp&nbsp Editar</a></td>
+                <td>
+                    <form action="/camisa/{{$camisa->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+        </table>
+    @endif
 </body>
 </html>

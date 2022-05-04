@@ -12,32 +12,47 @@
         <form action="/camisa/{{ $camisa->id }}" method="POST">
         @method('PATCH')
     @else
-        <h1>Agregar Camisa</h1>
+        <h1 align="center">Agregar Camisa</h1>
+        <br><br><br>
         <form action="/camisa" method="POST">
     @endisset
     
 
-
-    <form action="/camisa" method="POST">
-        @csrf
-        <label for="marca">Marca:</label>
-        <input type="text" name="marca" value= "{{isset($camisa) ? $camisa->marca : ''}} {{old('marca')}}">
-        <br>
-        <label for="talla">Talla:</label>
-        <select name="talla">
-            <option value="Chica" {{ isset($camisa) && $camisa->talla == "Chica" ? 'selected' : ''}} >CH</option>
-            <option value="Mediana"{{ isset($camisa) && $camisa->talla == "Mediana" ? 'selected' : ''}} >M</option>
-            <option value="Grande"{{ isset($camisa) && $camisa->talla == "Grande" ? 'selected' : ''}} >G</option>
-            <option value="ExtraG"{{ isset($camisa) && $camisa->talla == "ExtraG" ? 'selected' : ''}} >EG</option>
-        </select>
-        <br>
-        <label for="precio">Precio:</label>
-        <input type="double" name="precio" value = "{{isset($camisa) ? $camisa->precio : ''}}{{old('precio')}}">
-        <br>
-        <label for="no_unidades">Unidades:</label>
-        <input type="number" name="no_unidades" value= "{{isset($camisa) ? $camisa->no_unidades : ''}} {{old('no_unidades')}}">
-        <br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div align="center">
+        <form action="/camisa" method="POST">
+            @csrf
+            <label for="marca" >Marca:&nbsp&nbsp&nbsp</label>
+            <input type="text" name="marca" value= "{{isset($camisa) ? $camisa->marca : ''}} {{old('marca')}}">
+            <br><br>
+            @error('marca')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror   
+            <label for="precio">Precio:&nbsp&nbsp&nbsp</label>
+            <input type="double" name="precio" value = "{{isset($camisa) ? $camisa->precio : ''}} {{old('precio')}}">
+            <br><br>
+            @error('precio')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror 
+            <label for="no_unidades">Unidades:</label>
+            <input type="number" name="no_unidades" value= "{{isset($camisa) ? $camisa->no_unidades : old('no_unidades')}}">
+            <br><br>
+            @error('no_unidades')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror 
+            <label for="talla">Talla:&nbsp&nbsp&nbsp</label>
+            <select name="talla">
+                <option value="Chica" {{ (isset($camisa) && $camisa->talla == "Chica")|| old('talla')=="Chica" ? 'selected' : ''}} >CH</option>
+                <option value="Mediana"{{  (isset($camisa) && $camisa->talla == "Mediana")|| old('talla')=="Mediana" ? 'selected' : ''}} >M</option>
+                <option value="Grande"{{ (isset($camisa) && $camisa->talla == "Grande")|| old('talla')=="Grande" ? 'selected' : ''}} >G</option>
+                <option value="ExtraG"{{ (isset($camisa) && $camisa->talla == "ExtraG")|| old('talla')=="ExtraG" ? 'selected' : ''}} >EG</option>
+            </select>
+            <br><br>
+            @error('talla')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror 
+            <input type="submit" value="Enviar" >
+            <br><br>
+        </form>
+    </div>
 </body>
 </html>

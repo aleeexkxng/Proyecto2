@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('camisas', function (Blueprint $table) {
             $table->id();
-            $table->string('talla',5);
+            $table->string('talla',10);
             $table->double('precio');
             $table->string('marca',50);
             $table->bigInteger('no_unidades');

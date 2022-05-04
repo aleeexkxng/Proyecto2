@@ -19,7 +19,7 @@ class CamisaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public static function index()
     {
         $camisas= Camisa::get();
         return view("camisas.indexCamisas", compact("camisas"));
@@ -30,7 +30,7 @@ class CamisaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public static function create()
     {
         return view("camisas.formularioCamisa");
     }
@@ -52,7 +52,7 @@ class CamisaController extends Controller
         $camisa->no_unidades= $request->no_unidades;
         $camisa->save();
 
-        return redirect("/camisa");
+        return redirect("/dashboard");
     }
 
     /**
@@ -94,7 +94,7 @@ class CamisaController extends Controller
         $camisa->no_unidades= $request->no_unidades;
         $camisa->save();
 
-        return redirect("/camisa");
+        return redirect("/dashboard");
     }
 
     /**

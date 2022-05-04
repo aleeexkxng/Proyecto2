@@ -18,5 +18,20 @@ use App\Http\Controllers\CamisaController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/agregarCamisa', function () {
+    return view('agregarCamisa');
+});
 
 Route::resource("/camisa",CamisaController::class);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/dashboardSettings', function () {
+        return view('dashboardSettings');
+    })->name('dashboardSettings');
+});
