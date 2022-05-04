@@ -61,7 +61,7 @@ class CamisaController extends Controller
      * @param  \App\Models\Camisa  $camisa
      * @return \Illuminate\Http\Response
      */
-    public function show(Camisa $camisa)
+    public static function show(Camisa $camisa)
     {
         return view("camisas.showCamisa",compact('camisa'));
     }
@@ -72,7 +72,7 @@ class CamisaController extends Controller
      * @param  \App\Models\Camisa  $camisa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Camisa $camisa)
+    public static function edit(Camisa $camisa)
     {
         return view("camisas.formularioCamisa",compact('camisa'));
     }
@@ -106,6 +106,6 @@ class CamisaController extends Controller
     public function destroy(Camisa $camisa)
     {
         $camisa->delete();
-        return redirect("/camisa");
+        return redirect("/");
     }
 }

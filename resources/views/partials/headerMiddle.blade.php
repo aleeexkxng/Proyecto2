@@ -4,7 +4,7 @@
                     <div class="col-lg-3 col-md-3 col-7">
                         <!-- Start Header Logo -->
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo/logo.png" alt="Logo">
+                            <img src="{{asset('assets/images/logo/logo.png')}}" alt="Logo">
                         </a>
                         <!-- End Header Logo -->
                     </div>
@@ -68,7 +68,7 @@
                                                         class="lni lni-close"></i></a>
                                                 <div class="cart-img-head">
                                                     <a class="cart-img" href="product-details.html"><img
-                                                            src="assets/images/header/cart-items/item1.jpg" alt="#"></a>
+                                                            src="{{asset('assets/images/header/cart-items/item1.jpg')}}" alt="#"></a>
                                                 </div>
 
                                                 <div class="content">
@@ -82,7 +82,7 @@
                                                         class="lni lni-close"></i></a>
                                                 <div class="cart-img-head">
                                                     <a class="cart-img" href="product-details.html"><img
-                                                            src="assets/images/header/cart-items/item2.jpg" alt="#"></a>
+                                                            src="{{asset('assets/images/header/cart-items/item2.jpg')}}" alt="#"></a>
                                                 </div>
                                                 <div class="content">
                                                     <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>

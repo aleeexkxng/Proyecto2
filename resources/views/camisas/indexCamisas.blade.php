@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 align="center">Listado de camisas</h1>
+    <br><br>
     @if($camisas->count()==0)
         <h2 align="center">No hay camisas para mostrar</h2>
         <h3 align="center">Para agregar una haga click en la opcion "Agregar Camisa"</h3>
@@ -45,5 +46,6 @@
         @endforeach
         </table>
     @endif
+    <br><br>
 </body>
 </html>

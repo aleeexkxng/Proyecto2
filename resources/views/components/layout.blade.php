@@ -10,11 +10,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/LineIcons.3.0.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/tiny-slider.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/glightbox.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
 
 </head>
 
@@ -80,7 +80,7 @@
                             <ul class="useful-links">
                                 @auth
                                     <li><a href="/">Pagina principal</a></li>
-                                    <li><a href="/agregarCamisa">Agregar camisa</a></li>
+                                    <li><a href="/camisa/create">Agregar camisa</a></li>
                                 @else
                                     <li><a href="/">Pagina principal</a></li>  
                                 @endauth
@@ -129,10 +129,10 @@
     </a>
 
     <!-- ========================= JS here ========================= -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/tiny-slider.js"></script>
-    <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/tiny-slider.js')}}"></script>
+    <script src="{{asset('assets/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
     <script type="text/javascript">
         //========= Hero Slider 
         tns({

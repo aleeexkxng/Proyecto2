@@ -18,11 +18,8 @@ use App\Http\Controllers\CamisaController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/agregarCamisa', function () {
-    return view('agregarCamisa');
-});
+Route::resource("/camisa",CamisaController::class)->middleware('auth');
 
-Route::resource("/camisa",CamisaController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

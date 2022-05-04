@@ -1,31 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Camisa</title>
-</head>
-<body>
+<?php
+use App\Http\Controllers\CamisaController; ?>
 
-    <a href="/camisa/create">Agregar nueva camisa</a>
-    <h1>Listado de camisas</h1>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Talla</th>
-            <th>Marca</th>
-            <th>Precio</th>
-            <th>Unidades disponibles</th>
-        </tr>
-        <tr>
-            <th>{{   $camisa->id   }}</th>
-            <th>{{   $camisa->talla   }}</th>
-            <th>{{   $camisa->marca   }}</th>
-            <th>{{   $camisa->precio   }}</th>
-            <th>{{   $camisa->no_unidades   }}</th>
-        </tr>
-    </table>
-</body>
-</html>
+<x-layout>
+    <x-slot:title>
+        Stick and Dress
+    </x-slot>
+    <body>
+    <h1 align="center">Mostrar Camisa</h1>
+    <br><br>
+    <table border="1" style="margin: 0 auto;" >
+            <tr  >
+                <th>ID &nbsp&nbsp&nbsp</th>
+                <th>Talla &nbsp&nbsp&nbsp</th>
+                <th>Marca &nbsp&nbsp&nbsp</th>
+                <th>Precio &nbsp&nbsp&nbsp</th>
+                <th>Unidades disponibles &nbsp&nbsp&nbsp</th>
+                <th></th>
+                <th>Acciones &nbsp&nbsp&nbsp</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>{{   $camisa->id   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->talla   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->marca   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->precio   }} &nbsp&nbsp&nbsp</td>
+                <td>{{   $camisa->no_unidades   }} &nbsp&nbsp&nbsp</td>
+                <td>
+                    <a href="/camisa/{{$camisa->id}}">&nbsp&nbsp&nbsp Ver Detalle</a>   
+                </td>
+                <td><a href="/camisa/{{$camisa->id}}/edit">&nbsp&nbsp&nbsp Editar</a></td>
+                <td>
+                    <form action="/camisa/{{$camisa->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+    </body>
+</x-layout>
